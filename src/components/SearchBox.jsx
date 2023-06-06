@@ -12,10 +12,8 @@ import {
   Button,
   Box,
   Text,
-  RangeSlider,
-  RangeSliderTrack,
-  RangeSliderFilledTrack,
-  RangeSliderThumb,
+  Image,
+  Center
 } from '@chakra-ui/react';
 import { SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
@@ -64,15 +62,26 @@ const SearchBox = () => {
   return (
     <form onSubmit={handleSubmit}>
       <Box mb={4}>
-      <IconButton
-        aria-label="Search"
-        icon={<SearchIcon />}
-        variant='outline'
-        colorScheme='teal'
-        size="sm"
-        _hover={{ bg: 'teal.400' }}
-        onClick={handleToggle}
-      />
+        <Center>
+          <HStack spacing={4}>
+          <Image
+              // width="80px"
+              height="50px"
+              objectFit="contain"
+              src="twitter_header_photo_1.png" // ここにロゴのURLまたはパスを指定します
+              alt="Logo"
+            />
+            <IconButton
+              aria-label="Search"
+              icon={<SearchIcon />}
+              variant='outline'
+              colorScheme='teal'
+              size="sm"
+              _hover={{ bg: 'teal.400' }}
+              onClick={handleToggle}
+            />
+          </HStack>
+        </Center>
       </Box>
       <Collapse in={show}>
         <VStack width="100%" spacing={2} >
