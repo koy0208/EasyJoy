@@ -7,7 +7,8 @@ import {
   Text,
   IconButton,
   Input,
-  FormControl
+  FormControl,
+  Image
 } from "@chakra-ui/react";
 import { SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
@@ -18,14 +19,13 @@ const Temp = () => {
 
   return (
     <>
-      <Button variantcolor="blue" onClick={handleToggle}>
-        Toggle
-      </Button>
-      <Collapse in={show}>
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-        labore wes anderson cred nesciunt sapiente ea proident.
-      </Collapse>
+      <Image
+              // width="80px"
+              height="50px"
+              objectFit="contain"
+              src="twitter_header_photo_1.png" // ここにロゴのURLまたはパスを指定します
+              alt="Logo"
+      />
     </>
   );
 };

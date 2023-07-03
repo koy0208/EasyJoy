@@ -2,20 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Input,
-  InputGroup,
-  IconButton,
   FormControl,
   VStack,
   HStack,
   Select,
-  Collapse,
   Button,
-  Box,
   Text,
-  Image,
-  Center
 } from '@chakra-ui/react';
-import { SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
 
 
@@ -43,9 +36,6 @@ const SearchBox = () => {
     // 他のカテゴリーを追加
   ];
 
-  const [show, setShow] = useState(false);
-  const handleToggle = () => setShow(!show);
-
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,32 +50,8 @@ const SearchBox = () => {
     navigate(`/search?${new URLSearchParams(params).toString()}`);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <Box mb={4}>
-        <Center>
-          <HStack spacing={4}>
-          <Image
-              // width="80px"
-              height="50px"
-              objectFit="contain"
-              src="twitter_header_photo_1.png" // ここにロゴのURLまたはパスを指定します
-              alt="Logo"
-            />
-            <IconButton
-              aria-label="Search"
-              icon={<SearchIcon />}
-              variant='outline'
-              colorScheme='teal'
-              size="sm"
-              _hover={{ bg: 'teal.400' }}
-              onClick={handleToggle}
-            />
-          </HStack>
-        </Center>
-      </Box>
-      <Collapse in={show}>
+      <form onSubmit={handleSubmit}>
         <VStack width="100%" spacing={2} >
-          {/* <InputGroup> */}
             <FormControl>
               <Input
                 type="text"
@@ -138,10 +104,8 @@ const SearchBox = () => {
             >
               検索
             </Button>
-          {/* </InputGroup> */}
         </VStack>
-      </Collapse>
-    </form>
+      </form>
   );
 };
 

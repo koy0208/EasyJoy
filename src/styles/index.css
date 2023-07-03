@@ -1,3 +1,38 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+.my-custom-class h1 {
+  color: #333; /* 文字色をダークグレーに設定 */
+  font-size: 2em; /* フォントサイズを2倍に設定 */
+  margin-top: 0.67em; /* 上側のマージンを設定 */
+  margin-bottom: 0.67em; /* 下側のマージンを設定 */
+  font-weight: "bold";
+}
+
+.my-custom-class h2 {
+  color: #666; /* 文字色をライトグレーに設定 */
+  font-size: 1.5em; /* フォントサイズを1.5倍に設定 */
+  margin-top: 0.83em; /* 上側のマージンを設定 */
+  margin-bottom: 0.83em; /* 下側のマージンを設定 */
+  text-decoration: underline; /* 下線をつける */
+  font-weight: "bold";
+}
+
+.my-custom-class p {
+  color: #333; /* 文字色をダークグレーに設定 */
+  font-size: 1em; /* フォントサイズをデフォルトの1倍に設定 */
+  margin-top: 1em; /* 上側のマージンを設定 */
+  margin-bottom: 1em; /* 下側のマージンを設定 */
+}
+
+.my-custom-class a {
+  color: #007bff; /* リンクの文字色を設定 */
+  text-decoration: none; /* 下線をなくす */
+  font-weight: normal; /* フォントの太さを通常に設定 */
+}
+
+.my-custom-class a:hover, a:focus {
+  color: #0056b3; /* マウスオーバー時やフォーカス時の文字色を設定 */
+  text-decoration: underline; /* 下線をつける */
+}
+
+.my-custom-class a:visited {
+  color: #6c757d; /* 既に訪れたリンクの色を設定 */
+}

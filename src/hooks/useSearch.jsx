@@ -26,7 +26,7 @@ const useSearch = (params) => {
           price: item.item_price,
           image: item.item_img,
           url: item.item_url,
-          ranking: 1,
+          ranking: 0,
           point_rate: item.item_point_rate,
           item_point: item.item_point,
           shop : item.shop,

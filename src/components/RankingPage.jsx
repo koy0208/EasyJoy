@@ -5,22 +5,23 @@ import useRanking from '../hooks/useRanking';
 import { useSearchParams } from 'react-router-dom';
 import { Heading, Box, Center, Container, Tab, TabList, TabPanels, Tabs, Spinner, Text, Alert, AlertIcon } from "@chakra-ui/react";
 
-const CategoryPage = () => {
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  const currentMonth = currentDate.getMonth() + 1;
+const RankingPage = () => {
   const [activeTab, setActiveTab] = useState("楽天");
   const handleTabClick = (tabKey) => {
     setActiveTab(tabKey);
   };
   const [searchParams] = useSearchParams();
-  const queryParamList = ["keyword", "category", "min_price", "max_price", "sort", "page"];
+  const queryParamList = ["get_month", "category", "min_price", "max_price"];
   const params = queryParamList.reduce((acc, param) => {
     if (searchParams.has(param)) {
       acc[param] = searchParams.get(param);
     }
     return acc;
   }, {});
+
+  let parts = params.get_month.split("-");  // "-"で文字列を分割します
+  let currentYear = parts[0];  // 年は最初の部分
+  let currentMonth = parts[1];  // 月は二番目の部分
 
   const { results, error , loading} = useRanking(params);
   useEffect(() => {
@@ -67,4 +68,4 @@ const CategoryPage = () => {
   );  
 };
 
-export default CategoryPage;
+export default RankingPage;

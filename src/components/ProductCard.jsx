@@ -18,12 +18,41 @@ import {
 const ProductCard = ({ item }) => {
   const imageSize = useBreakpointValue({ base: "100px", md: "100px" });
   const [show, setShow] = useState(false);
-
   const handleToggle = () => setShow(!show);
+  let bgColor;
+    switch(item.ranking) {
+      case "1":
+        bgColor = "yellow.500";
+        break;
+      case "2":
+        bgColor = "teal.500";
+        break;
+      case "3":
+        bgColor = "purple.500";
+        break;
+      default:
+        bgColor = "gray.500";
+        break;
+    }
     return (
       <LinkBox as="article"> {/* Use LinkBox instead of Box */}
         <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={0}>
           <HStack spacing={4} p={1}>
+          {item.ranking > 0  && (
+            <Box
+            minHeight="20px" // 高さを20pxに設定
+            minWidth="20px" // 幅を20pxに設定
+            fontSize="0.8em"
+            bgColor={bgColor}
+            borderRadius="full"
+            color="white"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Text fontWeight="bold">{item.ranking}</Text>
+          </Box>
+          )}
             <Box boxSize={imageSize}> 
               <Skeleton boxSize={imageSize} isLoaded={item.image}>
                 <Image
